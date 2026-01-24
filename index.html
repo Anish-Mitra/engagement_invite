@@ -34,7 +34,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('/Engagement_page_pics/hands.jpg');
+            background-image: url('./Engagement_page_pics/hands.JPG');
             background-position: center center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -123,22 +123,25 @@
 
         .section-scroll-indicator {
             position: absolute;
-            bottom: 20px;
+            bottom: 60px; /* Moved lower from 20px */
             left: 50%;
             transform: translateX(-50%);
-            opacity: 0.5;
+            opacity: 0.8; /* More visible from 0.5 */
             z-index: 10;
             animation: bounce 2s infinite;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 5px;
+            background: rgba(255, 255, 255, 0.7); /* Add background for visibility */
+            padding: 10px 20px;
+            border-radius: 20px;
         }
 
         .section-scroll-indicator span {
-            font-size: 0.85rem;
-            color: #86868b;
-            font-weight: 500;
+            font-size: 1rem; /* Bigger from 0.85rem */
+            color: #1d1d1f; /* Darker color */
+            font-weight: 600; /* Bolder from 500 */
         }
 
         .section {
@@ -507,7 +510,7 @@
         }
 
         body.popup-open {
-            overflow: hidden;
+            overflow: auto; /* Allow scrolling */
         }
 
         @media (max-width: 768px) {
@@ -543,7 +546,8 @@
             .designer-section h3 { font-size: 1.6rem; }
             .designer-link { font-size: 1.1rem; }
             footer { padding: 40px 15px; }
-            .scroll-indicator, .section-scroll-indicator { bottom: 15px; }
+            .scroll-indicator { bottom: 15px; }
+            .section-scroll-indicator { bottom: 40px; } /* Keep it lower on mobile too */
             .popup-backdrop.active { display: block; }
             body.popup-open { overflow: hidden; }
         }
@@ -962,7 +966,7 @@
                 document.body.classList.add('popup-open');
             }, 10);
         }
-        
+
         function closePopup() {
             if (activePopup) {
                 activePopup.classList.remove('active');
@@ -981,6 +985,13 @@
             }
         });
 
+        // Close popup when clicking anywhere else on mobile
+        document.addEventListener('click', function(e) {
+            if (isMobile && activePopup && !e.target.closest('.dot') && !e.target.closest('.popup')) {
+                closePopup();
+            }
+        });
+        
         let slideshowIntervals = {};
 
         function changeSlide(button, direction) {
