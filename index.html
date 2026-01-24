@@ -8,6 +8,9 @@
         /* Import elegant font for title */
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
         
+        /* ========================================
+           GLOBAL RESET & BASE STYLES
+           ======================================== */
         * {
             margin: 0;
             padding: 0;
@@ -29,7 +32,9 @@
             min-height: 100vh;
         }
 
-        /* Background layers */
+        /* ========================================
+           BACKGROUND LAYERS
+           ======================================== */
         body::before {
             content: '';
             position: fixed;
@@ -37,7 +42,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('./Engagement_page_pics/hands.jpg');
+            background-image: url('Engagement_page_pics/hands.jpg');
             background-position: center center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -63,7 +68,9 @@
             pointer-events: none;
         }
 
-        /* Hero section */
+        /* ========================================
+           HERO SECTION
+           ======================================== */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -113,6 +120,9 @@
             line-height: 1.4;
         }
 
+        /* ========================================
+           SCROLL INDICATOR
+           ======================================== */
         .scroll-indicator {
             position: absolute;
             bottom: 40px;
@@ -129,7 +139,9 @@
             60% { transform: translateX(-50%) translateY(-10px); }
         }
 
-        /* Sections */
+        /* ========================================
+           SECTIONS
+           ======================================== */
         .section {
             min-height: 100vh;
             display: flex;
@@ -175,12 +187,14 @@
         }
 
         .section-scroll-hint p {
-            font-size: 1.25rem;
-            color: #000000;
+            font-size: 0.9rem;
+            color: #86868b;
             margin-bottom: 5px;
         }
 
-        /* Venue section */
+        /* ========================================
+           VENUE SECTION
+           ======================================== */
         .venue-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -236,7 +250,9 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
-        /* Interactive section */
+        /* ========================================
+           INTERACTIVE SECTION
+           ======================================== */
         .interactive-section {
             background: rgba(255, 255, 255, 0.65);
             backdrop-filter: blur(10px);
@@ -281,7 +297,9 @@
             object-fit: contain;
         }
 
-        /* Dots - larger for better touch */
+        /* ========================================
+           DOTS
+           ======================================== */
         .dot {
             position: absolute;
             width: 24px;
@@ -325,7 +343,9 @@
             transform: translate(-50%, -50%) scale(1.2);
         }
 
-        /* Popups - mobile & desktop responsive */
+        /* ========================================
+           POPUPS - MOBILE & DESKTOP
+           ======================================== */
         .popup {
             position: fixed;
             background: white;
@@ -373,7 +393,9 @@
             margin-bottom: 12px;
         }
 
-        /* Slideshow */
+        /* ========================================
+           SLIDESHOW
+           ======================================== */
         .slideshow-container {
             position: relative;
             width: 100%;
@@ -457,7 +479,9 @@
             border-radius: 5px;
         }
 
-        /* Designer section */
+        /* ========================================
+           DESIGNER SECTION
+           ======================================== */
         .designer-section {
             text-align: center;
             padding: 40px 20px;
@@ -485,7 +509,9 @@
             color: #6B5444;
         }
 
-        /* Footer */
+        /* ========================================
+           FOOTER
+           ======================================== */
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -499,8 +525,10 @@
             margin-bottom: 10px;
         }
 
-       /* Popup overlay */
-       .popup-overlay {
+        /* ========================================
+           POPUP OVERLAY - FIXED
+           ======================================== */
+        .popup-overlay {
             position: fixed;
             top: 0;
             left: 0;
@@ -511,16 +539,18 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease;
-            display: none; /* ADD THIS LINE */
+            display: none;
         }
 
         .popup-overlay.active {
             opacity: 1;
             pointer-events: auto;
-            display: block; /* ADD THIS LINE */
+            display: block;
         }
 
-        /* Responsive breakpoints */
+        /* ========================================
+           RESPONSIVE BREAKPOINTS
+           ======================================== */
         @media (min-width: 768px) {
             .section {
                 padding: 80px 30px;
@@ -598,7 +628,6 @@
         }
     </style>
 </head>
-
 <body>
     <!-- Popup Overlay -->
     <div class="popup-overlay" id="popupOverlay"></div>
@@ -632,6 +661,7 @@
                     <p><strong>Time:</strong> 10:30 am</p>
                     <p><strong>Venue:</strong> Chamara Vajra Mukta Hall, Gate F</p>
                     <p>Near TV Tower, Jayamahal Main Road, Bengaluru 560006</p>
+                    
                     <div class="map-container">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1139.8542924943815!2d77.59273466567876!3d13.00270551663578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae170fb6b434ef%3A0xb104e38d14592e06!2sMukta!5e0!3m2!1sen!2sus!4v1769058104130!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
@@ -639,7 +669,7 @@
             </div>
         </div>
         
-        <!-- Scroll hint to next section -->
+        <!-- Scroll hint -->
         <div class="section-scroll-hint">
             <p>Scroll to see our story</p>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#86868b" stroke-width="2">
@@ -676,21 +706,20 @@
                         <div class="dot" style="top: 35%; left: 30%;" data-popup="popup11"></div>
                     </div>
 
-                    <!-- Popup 1 -->
+                    <!-- All Popups -->
                     <div id="popup1" class="popup">
-                        <img src="./Engagement_page_pics/bear_lake1.jpeg" alt="Bear Lake">
+                        <img src="Engagement_page_pics/bear_lake1.jpeg" alt="Bear Lake">
                         <p class="popup-text">
                             <strong>Bear Lake, Rocky Mountains, Colorado</strong>
                             One of our first treks together in Colorado to the beautiful Bear Lake!
                         </p>
                     </div>
 
-                    <!-- Popup 2 -->
                     <div id="popup2" class="popup">
                         <div class="slideshow-container">
-                            <img src="./Engagement_page_pics/arches.jpeg" alt="Arches" class="active-slide">
-                            <img src="./Engagement_page_pics/canyonlands1.jpeg" alt="Canyonlands 1">
-                            <img src="./Engagement_page_pics/canyonlands2.jpeg" alt="Canyonlands 2">
+                            <img src="Engagement_page_pics/arches.jpeg" alt="Arches" class="active-slide">
+                            <img src="Engagement_page_pics/canyonlands1.jpeg" alt="Canyonlands 1">
+                            <img src="Engagement_page_pics/canyonlands2.jpeg" alt="Canyonlands 2">
                             
                             <button class="slide-arrow prev" onclick="changeSlide(this, -1)">‹</button>
                             <button class="slide-arrow next" onclick="changeSlide(this, 1)">›</button>
@@ -707,11 +736,10 @@
                         </p>
                     </div>
 
-                    <!-- Popup 3 -->
                     <div id="popup3" class="popup">
                         <div class="slideshow-container">
-                            <img src="./Engagement_page_pics/kayak1.jpeg" alt="Kayaking 1" class="active-slide">
-                            <img src="./Engagement_page_pics/kayak2.jpeg" alt="Kayaking 2">
+                            <img src="Engagement_page_pics/kayak1.jpeg" alt="Kayaking 1" class="active-slide">
+                            <img src="Engagement_page_pics/kayak2.jpeg" alt="Kayaking 2">
                             
                             <button class="slide-arrow prev" onclick="changeSlide(this, -1)">‹</button>
                             <button class="slide-arrow next" onclick="changeSlide(this, 1)">›</button>
@@ -727,7 +755,6 @@
                         </p>
                     </div>
 
-                    <!-- Popup 4 -->
                     <div id="popup4" class="popup">
                         <div class="slideshow-container">
                             <img src="Engagement_page_pics/sweet1.jpeg" alt="Sweets 1" class="active-slide">
@@ -749,7 +776,6 @@
                         </p>
                     </div>
 
-                    <!-- Popup 5 -->
                     <div id="popup5" class="popup">
                         <div class="slideshow-container">
                             <img src="Engagement_page_pics/cycle.jpeg" alt="Cycling 1" class="active-slide">
@@ -769,7 +795,6 @@
                         </p>
                     </div>
 
-                    <!-- Popup 6 -->
                     <div id="popup6" class="popup">
                         <div class="slideshow-container">
                             <img src="Engagement_page_pics/fall_mntn1.jpeg" alt="Fall 1" class="active-slide">
@@ -785,454 +810,4 @@
                                 <span class="slide-indicator" onclick="currentSlide(this, 2)"></span>
                             </div>
                         </div>
-                        <p class="popup-text">
-                            <strong>Fall-ing in Love!</strong>
-                            Fall or Autumn is absolutely our favorite season, and holds a special place in our beginnings!
-                        </p>
-                    </div>
-
-                    <!-- Popup 7 -->
-                    <div id="popup7" class="popup">
-                        <img src="Engagement_page_pics/monkeying_around.jpeg" alt="Monkeying Around">
-                        <p class="popup-text">
-                            <strong>Monkeying Around!</strong>
-                            When we're not busy traveling, we're on each other's backs.....literally!!
-                        </p>
-                    </div>
-
-                    <!-- Popup 8 -->
-                    <div id="popup8" class="popup">
-                        <img src="Engagement_page_pics/drink.jpeg" alt="Cocktails">
-                        <p class="popup-text">
-                            <strong>Tipsy Turvy</strong>
-                            We're always looking out for new things to try, such as these beautiful cocktails in 3 Dots and a Dash, Chicago!
-                        </p>
-                    </div>
-
-                    <!-- Popup 9 -->
-                    <div id="popup9" class="popup">
-                        <div class="slideshow-container">
-                            <img src="Engagement_page_pics/breck_mntn.jpeg" alt="Mountains 1" class="active-slide">
-                            <img src="Engagement_page_pics/Alta_lake.jpeg" alt="Mountains 2">
-                            
-                            <button class="slide-arrow prev" onclick="changeSlide(this, -1)">‹</button>
-                            <button class="slide-arrow next" onclick="changeSlide(this, 1)">›</button>
-                            
-                            <div class="slide-indicators">
-                                <span class="slide-indicator active" onclick="currentSlide(this, 0)"></span>
-                                <span class="slide-indicator" onclick="currentSlide(this, 1)"></span>
-                            </div>
-                        </div>
-                        <p class="popup-text">
-                            <strong>Mountains of Colorado</strong>
-                            Rachita's job in Colorado has given us the opportunity to explore and view Anish's favorite features: Mountains❤️!
-                        </p>
-                    </div>
-
-                    <!-- Popup 10 -->
-                    <div id="popup10" class="popup">
-                        <div class="slideshow-container">
-                            <img src="Engagement_page_pics/tulip1.jpeg" alt="Tulips 1" class="active-slide">
-                            <img src="Engagement_page_pics/tulip2.jpeg" alt="Tulips 2">
-                            <img src="Engagement_page_pics/tulip3.jpeg" alt="Tulips 3">
-                            
-                            <button class="slide-arrow prev" onclick="changeSlide(this, -1)">‹</button>
-                            <button class="slide-arrow next" onclick="changeSlide(this, 1)">›</button>
-                            
-                            <div class="slide-indicators">
-                                <span class="slide-indicator active" onclick="currentSlide(this, 0)"></span>
-                                <span class="slide-indicator" onclick="currentSlide(this, 1)"></span>
-                                <span class="slide-indicator" onclick="currentSlide(this, 2)"></span>
-                            </div>
-                        </div>
-                        <p class="popup-text">
-                            <strong>Don't Let the Name Fool You!</strong>
-                            Holland, Michigan hosts a festival showcasing Rachita's favorite flowers, Lilies and Tulips!
-                        </p>
-                    </div>
-
-                    <!-- Popup 11 -->
-                    <div id="popup11" class="popup">
-                        <img src="Engagement_page_pics/train.jpeg" alt="Train">
-                        <p class="popup-text">
-                            <strong>Durango, Colorado</strong>
-                            Durango to Silverton train passing through scenic gorges and rivers!
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Designer Section -->
-                <div class="designer-section">
-                    <h3>Designed With Love</h3>
-                    <p style="color: #515154; margin-bottom: 15px;">
-                        Our invitation was beautifully crafted by
-                    </p>
-                    <p>
-                        <a href="https://instagram.com/your-sisters-profile" target="_blank" class="designer-link">
-                            [Your Sister's Name]
-                        </a>
-                    </p>
-                    <p style="margin-top: 20px; color: #86868b; font-style: italic;">
-                        Weaving our memories into art 💕
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p style="font-size: 1.5rem; font-weight: 500; margin-bottom: 15px;">
-            We can't wait to celebrate with you
-        </p>
-        <p style="color: #86868b;">With love,</p>
-        <p style="font-weight: 500; font-size: 1.3rem; margin-top: 5px;">Rachita & Anish</p>
-    </footer>
-
-    <script>
-        /* ========================================
-           SCROLL ANIMATION
-           ======================================== */
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
-        });
-
-        /* ========================================
-           DEVICE DETECTION
-           ======================================== */
-        function isTouchDevice() {
-            return (('ontouchstart' in window) ||
-                   (navigator.maxTouchPoints > 0) ||
-                   (navigator.msMaxTouchPoints > 0));
-        }
-
-        const isMobile = isTouchDevice() && window.innerWidth < 1024;
-        console.log('Touch device:', isTouchDevice());
-        console.log('Window width:', window.innerWidth);
-        console.log('Treating as mobile:', isMobile);
-        
-        const popupOverlay = document.getElementById('popupOverlay');
-        const dots = document.querySelectorAll('.dot');
-        let activePopup = null;
-
-        /* ========================================
-           POPUP POSITIONING FUNCTION
-           ======================================== */
-        function positionPopup(popup, dot) {
-            const isDesktop = window.innerWidth >= 1024;
-            
-            if (!isDesktop) {
-                // Mobile/Tablet: centered by CSS
-                return;
-            }
-            
-            // Desktop: position near dot
-            const dotRect = dot.getBoundingClientRect();
-            const containerRect = dot.closest('.interactive-card').getBoundingClientRect();
-            
-            let left = dotRect.left - containerRect.left + 35;
-            let top = dotRect.top - containerRect.top - 20;
-            
-            // Adjust if popup would overflow
-            const popupWidth = 450;
-            if (left + popupWidth > containerRect.width) {
-                left = dotRect.left - containerRect.left - popupWidth - 10;
-            }
-            
-            const popupHeight = 500;
-            if (top + popupHeight > containerRect.height) {
-                top = containerRect.height - popupHeight - 20;
-            }
-            
-            if (top < 0) {
-                top = 10;
-            }
-            
-            popup.style.left = left + 'px';
-            popup.style.top = top + 'px';
-        }
-
-        /* ========================================
-           DOT CLICK/TAP HANDLERS
-           ======================================== */
-        dots.forEach(dot => {
-            // Click handler - works on ALL devices
-            dot.addEventListener('click', function(e) {
-                e.stopPropagation();
-                e.preventDefault();
-                
-                const popupId = this.getAttribute('data-popup');
-                const popup = document.getElementById(popupId);
-                
-                console.log('Dot clicked, popup ID:', popupId);
-                console.log('Popup element:', popup);
-                
-                if (!popup) {
-                    console.error('Popup not found!');
-                    return;
-                }
-                
-                // Close other popups
-                if (activePopup && activePopup !== popup) {
-                    activePopup.classList.remove('active');
-                }
-                
-                // Toggle current popup
-                if (popup.classList.contains('active')) {
-                    popup.classList.remove('active');
-                    popupOverlay.classList.remove('active');
-                    activePopup = null;
-                    console.log('Popup closed');
-                } else {
-                    positionPopup(popup, this);
-                    popup.classList.add('active');
-                    popupOverlay.classList.add('active');
-                    activePopup = popup;
-                    console.log('Popup opened');
-                }
-            });
-
-            // Hover handlers - desktop only
-            dot.addEventListener('mouseenter', function(e) {
-                // Skip hover if touch device or mobile
-                if (isMobile) return;
-                if (activePopup) return; // Don't trigger if popup is clicked open
-                
-                const popupId = this.getAttribute('data-popup');
-                const popup = document.getElementById(popupId);
-                
-                if (!popup) return;
-                
-                console.log('Mouse entered dot, showing popup');
-                positionPopup(popup, this);
-                
-                // Use requestAnimationFrame to ensure DOM is ready
-                requestAnimationFrame(() => {
-                    popup.classList.add('active');
-                });
-            });
-            
-            dot.addEventListener('mouseleave', function(e) {
-                if (isMobile) return;
-                if (activePopup) return;
-                
-                const popupId = this.getAttribute('data-popup');
-                const popup = document.getElementById(popupId);
-                
-                if (!popup) return;
-                
-                setTimeout(() => {
-                    if (!popup.matches(':hover')) {
-                        popup.classList.remove('active');
-                        console.log('Mouse left dot, hiding popup');
-                    }
-                }, 150);
-            });
-        });
-
-        // Desktop: Keep popup open when hovering over it
-        const popups = document.querySelectorAll('.popup');
-        popups.forEach(popup => {
-            popup.addEventListener('mouseenter', function() {
-                if (isMobile) return;
-                console.log('Mouse entered popup');
-            });
-            
-            popup.addEventListener('mouseleave', function() {
-                if (isMobile) return;
-                if (activePopup) return;
-                
-                console.log('Mouse left popup, hiding it');
-                this.classList.remove('active');
-            });
-        });
-
-        // Close popup when clicking outside
-        document.addEventListener('click', function(e) {
-            if (activePopup && !e.target.closest('.dot') && !e.target.closest('.popup')) {
-                activePopup.classList.remove('active');
-                popupOverlay.classList.remove('active');
-                activePopup = null;
-            }
-        });
-
-        // Close popup when clicking overlay
-        popupOverlay.addEventListener('click', function() {
-            if (activePopup) {
-                activePopup.classList.remove('active');
-                popupOverlay.classList.remove('active');
-                activePopup = null;
-            }
-        });
-
-        /* ========================================
-           SLIDESHOW FUNCTIONALITY
-           ======================================== */
-        let slideshowIntervals = {};
-
-        function changeSlide(button, direction) {
-            const container = button.closest('.slideshow-container');
-            if (!container) return;
-            
-            const slides = container.querySelectorAll('img');
-            const indicators = container.querySelectorAll('.slide-indicator');
-            
-            if (slides.length === 0) return;
-            
-            let currentIndex = Array.from(slides).findIndex(slide => 
-                slide.classList.contains('active-slide')
-            );
-            
-            if (currentIndex === -1) currentIndex = 0;
-            
-            slides[currentIndex].classList.remove('active-slide');
-            if (indicators[currentIndex]) indicators[currentIndex].classList.remove('active');
-            
-            currentIndex = (currentIndex + direction + slides.length) % slides.length;
-            
-            slides[currentIndex].classList.add('active-slide');
-            if (indicators[currentIndex]) indicators[currentIndex].classList.add('active');
-            
-            const popup = container.closest('.popup');
-            if (popup) {
-                const popupId = popup.id;
-                resetAutoPlay(popupId);
-            }
-        }
-
-        function currentSlide(indicator, index) {
-            const container = indicator.closest('.slideshow-container');
-            if (!container) return;
-            
-            const slides = container.querySelectorAll('img');
-            const indicators = container.querySelectorAll('.slide-indicator');
-            
-            slides.forEach(slide => slide.classList.remove('active-slide'));
-            indicators.forEach(ind => ind.classList.remove('active'));
-            
-            if (slides[index]) slides[index].classList.add('active-slide');
-            if (indicators[index]) indicators[index].classList.add('active');
-            
-            const popup = container.closest('.popup');
-            if (popup) {
-                const popupId = popup.id;
-                resetAutoPlay(popupId);
-            }
-        }
-
-        function startAutoPlay(popupId) {
-            const popup = document.getElementById(popupId);
-            if (!popup) return;
-            
-            const container = popup.querySelector('.slideshow-container');
-            if (!container) return;
-            
-            if (slideshowIntervals[popupId]) {
-                clearInterval(slideshowIntervals[popupId]);
-            }
-            
-            slideshowIntervals[popupId] = setInterval(() => {
-                const nextButton = container.querySelector('.slide-arrow.next');
-                if (nextButton) changeSlide(nextButton, 1);
-            }, 3000);
-        }
-
-        function stopAutoPlay(popupId) {
-            if (slideshowIntervals[popupId]) {
-                clearInterval(slideshowIntervals[popupId]);
-                delete slideshowIntervals[popupId];
-            }
-        }
-
-        function resetAutoPlay(popupId) {
-            stopAutoPlay(popupId);
-            startAutoPlay(popupId);
-        }
-
-        const popupsWithSlideshow = document.querySelectorAll('.popup');
-        const slideshowObserver = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                if (mutation.attributeName === 'class') {
-                    const popup = mutation.target;
-                    const popupId = popup.id;
-                    
-                    if (popup.classList.contains('active')) {
-                        startAutoPlay(popupId);
-                    } else {
-                        stopAutoPlay(popupId);
-                    }
-                }
-            });
-        });
-
-        popupsWithSlideshow.forEach(popup => {
-            slideshowObserver.observe(popup, { attributes: true });
-        });
-
-        /* ========================================
-           TOUCH SWIPE SUPPORT
-           ======================================== */
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        popupsWithSlideshow.forEach(popup => {
-            const container = popup.querySelector('.slideshow-container');
-            if (!container) return;
-
-            container.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            }, { passive: true });
-
-            container.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe(container);
-            }, { passive: true });
-        });
-
-        function handleSwipe(container) {
-            const swipeThreshold = 50;
-            const diff = touchStartX - touchEndX;
-
-            if (Math.abs(diff) > swipeThreshold) {
-                const nextButton = container.querySelector('.slide-arrow.next');
-                const prevButton = container.querySelector('.slide-arrow.prev');
-
-                if (diff > 0 && nextButton) {
-                    changeSlide(nextButton, 1);
-                } else if (diff < 0 && prevButton) {
-                    changeSlide(prevButton, -1);
-                }
-            }
-        }
-
-        /* ========================================
-           WINDOW RESIZE HANDLER
-           ======================================== */
-        let resizeTimer;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(function() {
-                if (activePopup && window.innerWidth >= 1024) {
-                    const activeDot = document.querySelector(`[data-popup="${activePopup.id}"]`);
-                    if (activeDot) {
-                        positionPopup(activePopup, activeDot);
-                    }
-                }
-            }, 250);
-        });
-    </script>
-</body>
-</html>
+                        <p class
