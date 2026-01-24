@@ -34,7 +34,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('Engagement_page_pics/hands.jpg');
+            background-image: url('/Engagement_page_pics/hands.jpg');
             background-position: center center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -522,7 +522,7 @@
             .interactive-section { padding: 30px 15px; border-radius: 20px; }
             .intro-text { font-size: 1rem; margin-bottom: 30px; }
             .interactive-card { border-radius: 15px; }
-            .dot { width: 24px; height: 24px; border-width: 4px; }
+            .dot {width: 20px; height: 20px; border-width: 3px;}
             .popup {
                 position: fixed !important;
                 left: 50% !important;
@@ -538,7 +538,7 @@
             .popup-text { font-size: 0.9rem; }
             .slideshow-container { min-height: 180px; }
             .slideshow-container img { max-height: 250px; }
-            .slide-arrow { width: 32px; height: 32px; font-size: 16px; }
+            .slide-arrow {width: 40px; height: 40px; font-size: 20px;}
             .designer-section { padding: 40px 20px; }
             .designer-section h3 { font-size: 1.6rem; }
             .designer-link { font-size: 1.1rem; }
@@ -845,35 +845,39 @@
 
         dots.forEach(dot => {
     if (isMobile) {
-        // MOBILE: Tap to toggle
-        dot.addEventListener('touchstart', function() {
+        // MOBILE: Use touchend for more reliable tap detection
+        let touchStartTime = 0;
+        
+        dot.addEventListener('touchstart', function(e) {
             touchMoved = false;
+            touchStartTime = Date.now();
         }, { passive: true });
 
         dot.addEventListener('touchmove', function() {
             touchMoved = true;
         }, { passive: true });
 
-        dot.addEventListener('click', function(e) {
+        dot.addEventListener('touchend', function(e) {
             e.preventDefault();
             e.stopPropagation();
-
-            if (touchMoved) return;
-
+            
+            // Ignore if this was a scroll gesture or took too long
+            if (touchMoved || (Date.now() - touchStartTime > 500)) return;
+            
             const popupId = this.getAttribute('data-popup');
             const popup = document.getElementById(popupId);
-
+            
             if (activePopup && activePopup !== popup) {
                 activePopup.classList.remove('active');
                 dots.forEach(d => d.classList.remove('active'));
             }
-
+            
             if (popup.classList.contains('active')) {
                 closePopup();
             } else {
                 openPopup(popup, this);
             }
-        });
+        }, { passive: false });
     } else {
         // DESKTOP: Both hover AND click
 
@@ -949,20 +953,23 @@
         }
 
         function openPopup(popup, dot) {
-            popup.classList.add('active');
-            dot.classList.add('active');
-            activePopup = popup;
-            popupBackdrop.classList.add('active');
-            document.body.classList.add('popup-open');
+            // Small delay to prevent immediate closure
+            setTimeout(() => {
+                popup.classList.add('active');
+                dot.classList.add('active');
+                activePopup = popup;
+                // REMOVED: popupBackdrop.classList.add('active');
+                document.body.classList.add('popup-open');
+            }, 10);
         }
-
+        
         function closePopup() {
             if (activePopup) {
                 activePopup.classList.remove('active');
                 activePopup = null;
             }
             dots.forEach(d => d.classList.remove('active'));
-            popupBackdrop.classList.remove('active');
+            // REMOVED: popupBackdrop.classList.remove('active');
             document.body.classList.remove('popup-open');
         }
 
@@ -1092,6 +1099,15 @@
                 }
             }
         }
+
+        // Fix for iOS slideshow arrows
+        document.querySelectorAll('.slide-arrow').forEach(arrow => {
+            arrow.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.click(); // Trigger the click event
+            }, { passive: false });
+        });
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
