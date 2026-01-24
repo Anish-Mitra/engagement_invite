@@ -526,6 +526,86 @@
             overflow: auto; /* Allow scrolling */
         }
 
+                /* Desktop only - fix specific popup images that go out of bounds */
+        @media (min-width: 769px) {
+            /* Popup 6 - fix slideshow display */
+            #popup6 .slideshow-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            #popup6 .slideshow-container img {
+                max-height: 300px;
+                width: auto;
+                display: none; /* Hide all by default */
+            }
+            
+            #popup6 .slideshow-container img.active-slide {
+                display: block; /* Only show active slide */
+            }
+            
+            #popup6 {
+                max-width: 380px;
+                min-width: 320px;
+            }
+            
+            /* Popup 7 */
+            #popup7 {
+                max-width: 380px;
+                min-width: 320px;
+            }
+            
+            #popup7 img {
+                max-height: 320px;
+                width: auto;
+                margin: 0 auto;
+                display: block;
+            }
+            
+            /* Popup 8 */
+            #popup8 {
+                max-width: 380px;
+                min-width: 320px;
+            }
+            
+            #popup8 img {
+                max-height: 300px;
+                width: auto;
+                margin: 0 auto;
+                display: block;
+            }
+            
+            /* Popup 9 - make larger */
+            #popup9 .slideshow-container img {
+                max-height: 380px;
+                width: auto;
+            }
+            
+            /* Popup 11 - make larger */
+            #popup11 {
+                max-width: 450px;
+                min-width: 380px;
+            }
+            
+            #popup11 img {
+                max-height: 400px;
+                width: auto;
+                margin: 0 auto;
+                display: block;
+            }
+            
+            /* Allow text to wrap in these popups */
+            #popup6 .popup-text,
+            #popup7 .popup-text,
+            #popup8 .popup-text,
+            #popup11 .popup-text {
+                word-wrap: break-word;
+                hyphens: auto;
+            }
+        }
+
+        
         @media (max-width: 768px) {
             .hero { padding: 40px 15px; }
             h1 { font-size: clamp(2rem, 10vw, 3rem); }
