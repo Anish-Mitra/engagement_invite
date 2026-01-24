@@ -6,7 +6,7 @@
     <title>Our Engagement</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -87,22 +87,29 @@
         }
 
         h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 600;
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(3rem, 10vw, 6rem); /* Increased from 2.5rem/5rem */
+            font-weight: 700; /* Bolder from 600 */
             background: linear-gradient(135deg, #8B7355 0%, #A0826D 50%, #6B5444 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 1rem;
             letter-spacing: 0.02em;
+            /* Add text shadow for better contrast */
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
         }
 
         .subtitle {
-            font-size: clamp(1.1rem, 3vw, 1.5rem);
-            color: #86868b;
-            font-weight: 400;
+            font-size: clamp(1.3rem, 4vw, 1.8rem); /* Increased from 1.1rem/1.5rem */
+            color: #4a4a4a; /* Darker from #86868b */
+            font-weight: 500; /* Bolder from 400 */
             margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); /* Add shadow for readability */
+            /* background: rgba(255, 255, 255, 0.7); Add semi-transparent background */
+            padding: 10px 20px;
+            border-radius: 15px;
+            display: inline-block;
         }
 
         .scroll-indicator {
@@ -605,7 +612,7 @@
             }
         }
 
-        
+
         @media (max-width: 768px) {
             .hero { padding: 40px 15px; }
             h1 { font-size: clamp(2rem, 10vw, 3rem); }
