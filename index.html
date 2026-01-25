@@ -799,6 +799,7 @@
             .container { max-width: 1400px; }
             .interactive-card { max-width: 800px; }
         }
+        
     </style>
 </head>
 <body>
@@ -809,7 +810,7 @@
             <h1>We're Getting Engaged!</h1>
             <!-- <p class="subtitle">Join us as we celebrate the first milestone in our journey together 💞</p> -->
         </div>
-        <div class="scroll-indicator" onclick="document.getElementById('venue-section').scrollIntoView({behavior: 'smooth'})">
+        <div class="scroll-indicator" onclick="scrollToVenue()">
             <span class="scroll-text">Tap here to know more</span>
             <svg width="30" height="50" viewBox="0 0 30 50">
                 <rect x="5" y="5" width="20" height="40" rx="10" fill="none" stroke="#86868b" stroke-width="2"/>
@@ -1365,6 +1366,18 @@
                 }
             });
         });
+
+        function scrollToVenue() {
+            const venueSection = document.getElementById('venue-section');
+            const offset = 100; // Adjust this value - how much to show below venue
+            const elementPosition = venueSection.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
     </script>
 </body>
 </html>
