@@ -678,19 +678,21 @@
             .scroll-indicator { bottom: 15px; }
             .popup-backdrop.active { display: block; }
             body.popup-open { overflow: hidden; }
+           /* Add extra bottom padding to venue section to make room */
+            #venue-section {
+                padding-bottom: 130px;
+            } 
             .section-scroll-indicator { 
-                bottom: -70px; /* Push it further down on mobile to avoid map overlap */
+                bottom: -60px; /* Push it further down on mobile to avoid map overlap */
                 font-size: 0.9rem;
                 padding: 10px 18px;
+                margin-bottom: 40px; /* ADD THIS - creates gap below the indicator */
             }
             
             .section-scroll-indicator span {
                 font-size: 0.95rem;
             }
-            /* Add extra bottom padding to venue section to make room */
-            #venue-section {
-                padding-bottom: 130px;
-            }
+            
         }
 
         @media (min-width: 769px) {
