@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         
-        /* Signature font for Names */
         @font-face {
             font-family: 'Priestacy';
             src: url('./fonts/priestacy.regular.otf') format('opentype');
@@ -17,7 +16,7 @@
             font-style: normal;
         }
         
-
+        /* Used for heading and names */
         @font-face {
             font-family: 'Vegan_days';
             src: url('./fonts/vegan-days.regular.ttf') format('truetype');
@@ -26,13 +25,13 @@
         }
 
         @font-face {
-            font-family: 'Modernline';
-            src: url('./fonts/modernline-personal-use.bold.otf') format('opentype');
+            font-family: 'Bodoni';
+            src: url('./fonts/bodoni.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
 
-        /* Used for heading */
+        
         @font-face {
             font-family: 'Megastina';
             src: url('./fonts/megastina.regular.ttf') format('truetype');
@@ -146,41 +145,15 @@
             padding: 10px 0 25px 0; 
         }
 
-        
-
-                /* ========================================
-        SPARKLE EFFECT - Comment out this entire section to remove
-        ======================================== */
-        /* h1::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent 0%,
-                rgba(255, 255, 255, 0.8) 50%,
-                transparent 100%
-            );
-            animation: sparkle 3s infinite;
-            pointer-events: none;
-        }
-
-        @keyframes sparkle {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        } */
-        /* ======================================== */
 
         .subtitle {
-            font-size: clamp(1.3rem, 4vw, 1.8rem); /* Increased from 1.1rem/1.5rem */
-            color: #4a4a4a; /* Darker from #86868b */
-            font-weight: 500; /* Bolder from 400 */
+            font-family: 'Vegan_days', cursive;
+            font-size: clamp(1.5rem, 4.5vw, 2rem); /* Larger - increased from 1.3/1.8 */
+            color: #2a2a2a; /* Darker - was #4a4a4a */
+            font-weight: 700; /* Bold - was 500 */
             margin-bottom: 2rem;
-            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); /* Add shadow for readability */
-            /* background: rgba(255, 255, 255, 0.7); Add semi-transparent background */
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+            /* background: rgba(255, 255, 255, 0.7); */
             padding: 10px 20px;
             border-radius: 15px;
             display: inline-block;
@@ -274,13 +247,13 @@
         }
 
         .section-title {
-            font-family: 'Cormorant Garamond', serif;
+            /* font-family: 'bodoni',serif; */
             font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 600;
             text-align: center;
             margin-bottom: 3rem;
             color: #1d1d1f;
-            letter-spacing: 0.01em;
+            letter-spacing: -0.02em;
         }
 
         .venue-grid {
@@ -306,10 +279,11 @@
         }
 
         .venue-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            margin-bottom: 0.4rem;
             color: #1d1d1f;
             font-weight: 600;
+            font-family: 'Bodoni',serif;
         }
 
         .venue-card p {
@@ -566,7 +540,7 @@
         }
 
         .designer-section h3 {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Bodoni', serif;
             font-size: 2rem;
             margin-bottom: 15px;
             color: #1d1d1f;
@@ -576,8 +550,8 @@
             color: #8B7355;
             text-decoration: none;
             font-weight: 600;
-            font-size: 2rem;
-            font-family: 'Aloura';
+            font-size: 1.3rem;
+            /* font-family: 'Aloura'; */
             transition: color 0.3s ease;
             animation: pulse 2s ease-in-out infinite;
         }
@@ -808,7 +782,7 @@
     <div class="hero">
         <div class="hero-content">
             <h1>We're Getting Engaged!</h1>
-            <!-- <p class="subtitle">Join us as we celebrate the first milestone in our journey together 💞</p> -->
+            <p class="subtitle">Join us as we celebrate the first milestone in our journey together 💞</p>
         </div>
         <div class="scroll-indicator" onclick="scrollToVenue()">
             <span class="scroll-text">Tap here to know more</span>
@@ -824,21 +798,20 @@
 
     <div class="section" id="venue-section">
         <div class="container">
-            <h2 class="section-title">Join Us At</h2>
             <div class="venue-grid">
                 <div class="venue-card" style="text-align: center;">
-                    <h3>💍Engagement Ceremony</h3>
+                    <!-- <h2 class="section-title" style="font-family: 'Bodoni',cursive;">Join Us At</h2> -->
+                    <h3>Join Us At</h3>
                     <p><strong>Date:</strong> Wednesday, 11th February 2026</p>
                     <p><strong>Time:</strong> 10:30 am</p>
                     <p><strong>Venue: </strong> Chamara Vajra Mukta Hall, Gate F, Near TV Tower, Jayamahal Main Road, Bengaluru 560006 </p>
-                    <!-- <p>Near TV Tower, Jayamahal Main Road, Bengaluru 560006 </p> -->
                     <div style="text-align: center;">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1139.8542924943815!2d77.59273466567876!3d13.00270551663578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae170fb6b434ef%3A0xb104e38d14592e06!2sMukta!5e0!3m2!1sen!2sus!4v1769058104130!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="section-scroll-indicator">
+        <div class="section-scroll-indicator" onclick="scrollToStory()">
             <span>Scroll to explore our story</span>
             <svg width="24" height="40" viewBox="0 0 24 40">
                 <path d="M12 5 L12 30 M12 30 L6 24 M12 30 L18 24" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
@@ -849,9 +822,9 @@
     <div class="section" id="story-section">
         <div class="container">
             <div class="interactive-section">
-                <h2 class="section-title">Our Story in Memories</h2>
+                <h2 class="section-title" style="font-family: 'Bodoni',serif;">Our Story in Memories</h2>
                 <p class="intro-text">
-                    Each element of our invitation tells a piece of our journey. Tap the markers to discover the adventures and moments that brought us here. (P.S. Try to find all 11 elements!)
+                    Each element of our invitation tells a piece of our journey. Tap the markers to discover the adventures and moments that brought us here. 
                 </p>
 
                 <div class="interactive-card">
@@ -1042,7 +1015,7 @@
                             Nishitha Mitra
                         </a>
                     </p>
-                    <p style="margin-top: 20px; color: #86868b; font-style: italic;">
+                    <p style="margin-top: 20px; color: #86868b; font-size: small;">
                         Weaving our memories into art 💕. Please do give her profile a look and show her art some love as well! 
                     </p>
                 </div>
@@ -1377,6 +1350,22 @@
                 top: offsetPosition,
                 behavior: 'smooth'
             });
+        }
+
+        function scrollToStory() {
+            const storySection = document.getElementById('story-section');
+            const cardContainer = storySection.querySelector('.interactive-card');
+            
+            if (cardContainer) {
+                const cardPosition = cardContainer.getBoundingClientRect().top;
+                const offset = -100; // Adjust to show card perfectly
+                const offsetPosition = cardPosition + window.pageYOffset - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
         }
     </script>
 </body>
