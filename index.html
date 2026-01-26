@@ -117,6 +117,7 @@
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 1.2s ease forwards;
+            margin-top: -50px;
         }
 
         @keyframes fadeInUp {
@@ -151,7 +152,7 @@
             color: #2a2a2a; /* Darker - was #4a4a4a */
             font-weight: 700; /* Bold - was 500 */
             margin-bottom: 2rem;
-            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+            text-shadow: 1px 1px 3px rgba(93, 78, 55, 1);
             /* background: rgba(255, 255, 255, 0.7); */
             padding: 10px 20px;
             border-radius: 15px;
@@ -198,28 +199,36 @@
 
         .section-scroll-indicator {
             position: absolute;
-            bottom: -100px; /* Position it below the section on desktop */
+            bottom: -100px;
             left: 50%;
             transform: translateX(-50%);
-            opacity: 1;
+            opacity: 0.9;
             z-index: 10;
             animation: bounce 2s infinite;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
-            background: rgba(139, 115, 85, 0.9);
-            padding: 12px 24px;
+            gap: 5px;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 15px 20px;
             border-radius: 25px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            margin-bottom: 60px; /* Give space below scroll indicator */
+            margin-bottom: 60px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .section-scroll-indicator:hover {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-50%) scale(1.1);
         }
 
         .section-scroll-indicator span {
-            font-size: 1.1rem;
-            color: white;
-            font-weight: 600;
+            font-size: 0.9rem;
+            color: #4a4a4a;
+            font-weight: 500;
             text-align: center;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
         }
 
         .section {
@@ -707,6 +716,7 @@
 
         @media (max-width: 768px) {
             .hero { padding: 40px 15px; }
+            .hero-content {margin-top: -30px;} /* Less movement on mobile */
             h1 { font-size: clamp(2rem, 10vw, 3rem); }
             .subtitle { font-size: clamp(1.5rem, 4vw, 1.7rem); }
             .section { padding: 60px 15px; min-height: auto; }
@@ -746,14 +756,13 @@
                 padding-bottom: 130px;
             } 
             .section-scroll-indicator { 
-                bottom: -60px; /* Push it further down on mobile to avoid map overlap */
-                font-size: 0.9rem;
-                padding: 10px 18px;
-                margin-bottom: 40px; /* ADD THIS - creates gap below the indicator */
+                bottom: -60px;
+                padding: 12px 18px;
+                margin-bottom: 40px;
             }
-            
+
             .section-scroll-indicator span {
-                font-size: 0.95rem;
+                font-size: 0.85rem;
             }
             
         }
@@ -812,8 +821,12 @@
         </div>
         <div class="section-scroll-indicator" onclick="scrollToStory()">
             <span>Scroll to explore our story</span>
-            <svg width="24" height="40" viewBox="0 0 24 40">
-                <path d="M12 5 L12 30 M12 30 L6 24 M12 30 L18 24" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <svg width="30" height="50" viewBox="0 0 30 50">
+                <rect x="5" y="5" width="20" height="40" rx="10" fill="none" stroke="#86868b" stroke-width="2"/>
+                <circle cx="15" cy="15" r="3" fill="#86868b">
+                    <animate attributeName="cy" from="15" to="30" dur="1.5s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" from="1" to="0" dur="1.5s" repeatCount="indefinite"/>
+                </circle>
             </svg>
         </div>
     </div>
@@ -1357,7 +1370,7 @@
             
             if (cardContainer) {
                 const cardPosition = cardContainer.getBoundingClientRect().top;
-                const offset = 250; // Adjust to show card perfectly
+                const offset = 260; // Adjust to show card perfectly
                 const offsetPosition = cardPosition + window.pageYOffset - offset;
 
                 window.scrollTo({
